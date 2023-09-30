@@ -17,7 +17,7 @@
         android:text="Mortgage Calculator"
         android:textSize="24dp"
         android:textStyle="bold"
-        android:textColor="@color/black"/>
+        android:textColor="@color/viridian"/>
     
 
 
