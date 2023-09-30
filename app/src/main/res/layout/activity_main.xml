@@ -13,7 +13,11 @@
         android:layout_margin="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="Mortgage Calculator"/>
+        android:gravity="center"
+        android:text="Mortgage Calculator"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
     
 
 
