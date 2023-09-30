@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="russianViolet">#390040FF</color>
+    <color name="verdigris">#62bec1ff</color>
+    <color name="raspberryRose">#b5446eff</color>
+    <color name="magnolia">#efe9f4ff</color>
+    <color name="aquamarine">#75e4b3ff</color>
 </resources>
