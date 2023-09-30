@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="MortgageCalculator" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/magnolia</item>
-        <item name="colorPrimaryDark">@color/russianViolet</item>
-        <item name="colorAccent">@color/raspberryRose</item>
+        <item name="colorPrimary">@color/cambridge_blue</item>
+        <item name="colorPrimaryDark">@color/viridian</item>
+        <item name="colorAccent">@color/mint_green</item>
     </style>
 </resources>
