@@ -14,7 +14,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:gravity="center"
-        android:text="Mortgage Calculator"
+        android:text="Mortgage Payment Calculator"
         android:textSize="24dp"
         android:fontFamily="@font/quicksand_bold"
         android:textStyle="bold"
@@ -61,6 +61,30 @@
         android:hint="0.0%"
         android:fontFamily="@font/quicksand_regular"
         android:inputType="numberDecimal"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Tuner"
+        android:textSize="16sp"
+        android:textColor="@color/cambridge_blue"
+        android:fontFamily="@font/quicksand_semibold"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:textSize=""/>
+    </LinearLayout>
+
 
     
 
