@@ -303,10 +303,4 @@
                 android:fontFamily="@font/quicksand_bold"/>
         </LinearLayout>
     </LinearLayout>
-
-
-    
-
-
-
 </LinearLayout>

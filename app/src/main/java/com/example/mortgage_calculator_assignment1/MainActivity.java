@@ -1,8 +1,10 @@
 package com.example.mortgage_calculator_assignment1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.viridian));
+            getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.viridian));
+        }
+
 
         Button loanSummaryButton = findViewById(R.id.buttonTotal);
         Button clearButton = findViewById(R.id.buttonClear);
@@ -64,6 +71,23 @@ public class MainActivity extends AppCompatActivity {
                 x_loanAmount.setText(String.valueOf(M_principalAmount));
                 x_interestPayable.setText(String.valueOf(TotalInterest));
                 x_totalPayment.setText(String.valueOf(TotalPayment));
+
+            }
+        });
+        clearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                principalAmount.setText("");
+                interest.setText("");
+                inYear.setText("");
+                inMonth.setText("");
+
+                // Clear TextViews
+                x_emi.setText("0");
+                x_tenure.setText("0 Month");
+                x_loanAmount.setText("0");
+                x_interestPayable.setText("0");
+                x_totalPayment.setText("0");
 
             }
         });
