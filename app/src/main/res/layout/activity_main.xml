@@ -30,6 +30,7 @@
         android:textColor="@color/cambridge_blue"
         android:fontFamily="@font/quicksand_semibold"/>
     <EditText
+        android:id="@+id/principalAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -37,7 +38,29 @@
         android:layout_marginRight="10dp"
         android:textSize="24sp"
         android:hint="0"
+        android:fontFamily="@font/quicksand_regular"
         android:inputType="number"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textSize="16sp"
+        android:textColor="@color/cambridge_blue"
+        android:fontFamily="@font/quicksand_semibold"
+        android:text="Interest in Month"/>
+    <EditText
+        android:id="@+id/inMonth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textSize="24sp"
+        android:hint="0.0%"
+        android:fontFamily="@font/quicksand_regular"
+        android:inputType="numberDecimal"/>
 
     
 
