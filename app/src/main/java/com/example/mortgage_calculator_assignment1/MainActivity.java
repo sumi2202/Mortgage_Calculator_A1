@@ -40,10 +40,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buttonTotal(View view){
-        double principalAmount1 = Integer.parseInt(principalAmount.getText().toString());
-        double interest1 = Integer.parseInt(interest.getText().toString());
-        double year1 = Integer.parseInt(inYear.getText().toString());
-        double month1 = Integer.parseInt(inMonth.getText().toString());
+        double M_principalAmount = Integer.parseInt(principalAmount.getText().toString());
+        double M_interest = Integer.parseInt(interest.getText().toString());
+        int M_year = Integer.parseInt(inYear.getText().toString());
+        int M_month = Integer.parseInt(inMonth.getText().toString());
+
+        int yearExchange = (M_year * 12) + M_month;
+        double principal = M_principalAmount * (M_interest / 100);
+        double power = Math.pow(M_interest / 100 + 1, yearExchange);
+        double sum = principal / (1 - (1 / power));
 
 
     }
