@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.viridian));
-            getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.viridian));
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.viridian));
         }
 
 
@@ -52,25 +53,29 @@ public class MainActivity extends AppCompatActivity {
         loanSummaryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                double M_principalAmount = Double.parseDouble(principalAmount.getText().toString());
-                double M_interest = Double.parseDouble(interest.getText().toString());
-                int M_year = Integer.parseInt(inYear.getText().toString());
-                int M_month = Integer.parseInt(inMonth.getText().toString());
+                try {
+                    double M_principalAmount = Double.parseDouble(principalAmount.getText().toString());
+                    double M_interest = Double.parseDouble(interest.getText().toString());
+                    int M_year = Integer.parseInt(inYear.getText().toString());
+                    int M_month = Integer.parseInt(inMonth.getText().toString());
 
-                int yearExchange = (M_year * 12) + M_month;
-                double principal = M_principalAmount * (M_interest / 100);
-                double power = Math.pow(M_interest / 100 + 1, yearExchange);
-                double sum = principal / (1 - (1 / power));
+                    int yearExchange = (M_year * 12) + M_month;
+                    double principal = M_principalAmount * (M_interest / 100);
+                    double power = Math.pow(M_interest / 100 + 1, yearExchange);
+                    double sum = principal / (1 - (1 / power));
 
-                double TotalInterest = sum * yearExchange - M_principalAmount;
-                double TotalPayment = M_principalAmount + TotalInterest;
+                    double TotalInterest = sum * yearExchange - M_principalAmount;
+                    double TotalPayment = M_principalAmount + TotalInterest;
 
 
-                x_emi.setText(String.valueOf(sum));
-                x_tenure.setText(String.valueOf(yearExchange) + "Month");
-                x_loanAmount.setText(String.valueOf(M_principalAmount));
-                x_interestPayable.setText(String.valueOf(TotalInterest));
-                x_totalPayment.setText(String.valueOf(TotalPayment));
+                    x_emi.setText(String.valueOf(sum));
+                    x_tenure.setText(String.valueOf(yearExchange) + "Month");
+                    x_loanAmount.setText(String.valueOf(M_principalAmount));
+                    x_interestPayable.setText(String.valueOf(TotalInterest));
+                    x_totalPayment.setText(String.valueOf(TotalPayment));
+                } catch (NumberFormatException e){
+                    Toast.makeText(MainActivity.this, "Please enter a valid numeric value. Enter 0 when applicable.", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
