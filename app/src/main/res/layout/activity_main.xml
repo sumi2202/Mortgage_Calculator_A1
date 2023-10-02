@@ -7,6 +7,23 @@
     android:background="@color/mint_cream"
     android:orientation="vertical"
     tools:context=".MainActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/viridian">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EMI CALCULATOR"
+                android:fontFamily="@font/quicksand_bold"
+                android:textColor="@color/mint_cream"
+                android:textSize="24sp"
+                android:gravity="center"/>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -15,11 +32,11 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:gravity="center"
-        android:text="Mortgage Payment Calculator"
-        android:textSize="24dp"
+        android:text="Enter the valid amounts below. Empty fields must be entered with 0."
+        android:textSize="16sp"
         android:fontFamily="@font/quicksand_bold"
         android:textStyle="bold"
-        android:textColor="@color/viridian"/>
+        android:textColor="@color/cambridge_blue"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

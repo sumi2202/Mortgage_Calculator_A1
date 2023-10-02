@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                     x_emi.setText(String.valueOf(sum));
-                    x_tenure.setText(String.valueOf(yearExchange) + "Month");
+                    x_tenure.setText(String.valueOf(yearExchange) + " Month");
                     x_loanAmount.setText(String.valueOf(M_principalAmount));
                     x_interestPayable.setText(String.valueOf(TotalInterest));
                     x_totalPayment.setText(String.valueOf(TotalPayment));
