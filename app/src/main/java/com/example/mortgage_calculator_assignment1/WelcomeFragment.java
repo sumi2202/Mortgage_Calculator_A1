@@ -18,7 +18,6 @@ public class WelcomeFragment extends Fragment {
         startCalcButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Create an Intent to navigate to InputActivity
                 Intent i = new Intent(getActivity(), InputFragment.class);
                 startActivity(i);
             }
