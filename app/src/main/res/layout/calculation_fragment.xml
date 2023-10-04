@@ -16,7 +16,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="EMI CALCULATOR"
+                android:text="RESULTS"
                 android:fontFamily="@font/quicksand_bold"
                 android:textColor="@color/mint_cream"
                 android:textSize="24sp"
