@@ -17,10 +17,10 @@ public class WelcomeFragment extends Fragment {
         Button startCalcButton = view.findViewById(R.id.start_button);
         startCalcButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 // Create an Intent to navigate to InputActivity
-                Intent intent = new Intent(getActivity(), InputFragment.class);
-                startActivity(intent);
+                Intent i = new Intent(getActivity(), InputFragment.class);
+                startActivity(i);
             }
         });
 
