@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 public class CalculationFragment extends Fragment {
     private TextView x_emi;
@@ -13,55 +15,36 @@ public class CalculationFragment extends Fragment {
     private TextView x_loanAmount;
     private TextView x_interestPayable;
     private TextView x_totalPayment;
-    x_emi = view.findViewById(R.id.EMI);
-    x_tenure = view.findViewById(R.id.tenure);
-    x_loanAmount = view.findViewById(R.id.loanAmount);
-    x_interestPayable = view.findViewById(R.id.intPayable);
-    x_totalPayment = view.findViewById(R.id.totalPayable);
 
-        loanSummaryButton.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            try {
-                double M_principalAmount = Double.parseDouble(principalAmount.getText().toString());
-                double M_interest = Double.parseDouble(interest.getText().toString());
-                int M_year = Integer.parseInt(inYear.getText().toString());
-                int M_month = Integer.parseInt(inMonth.getText().toString());
 
-                int yearExchange = (M_year * 12) + M_month;
-                double principal = M_principalAmount * (M_interest / 100);
-                double power = Math.pow(M_interest / 100 + 1, yearExchange);
-                double sum = principal / (1 - (1 / power));
 
-                double TotalInterest = sum * yearExchange - M_principalAmount;
-                double TotalPayment = M_principalAmount + TotalInterest;
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.calculation_fragment, container, false);
 
-                x_emi.setText(String.valueOf(sum));
-                x_tenure.setText(String.valueOf(yearExchange) + " Month");
-                x_loanAmount.setText(String.valueOf(M_principalAmount));
-                x_interestPayable.setText(String.valueOf(TotalInterest));
-                x_totalPayment.setText(String.valueOf(TotalPayment));
-            } catch (NumberFormatException e) {
-                Toast.makeText(requireContext(), "Please enter a valid numeric value. Enter 0 when applicable.", Toast.LENGTH_SHORT).show();
-            }
-        }
-    });
+        // Retrieve input values from the intent extras
+        double principAmount = getArguments().getDouble("principalAmount", 0);
+        double interestValue = getArguments().getDouble("interest", 0);
+        int year = getArguments().getInt("year", 0);
+        int month = getArguments().getInt("month", 0);
 
-        clearButton.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            principalAmount.setText("");
-            interest.setText("");
-            inYear.setText("");
-            inMonth.setText("");
+        int yearExchange = (year * 12) + month;
+        double principal = principAmount * (interestValue / 100);
+        double power = Math.pow(interestValue / 100 + 1, yearExchange);
+        double sum = principal / (1 - (1 / power));
 
-            // Clear TextViews
-            x_emi.setText("0");
-            x_tenure.setText("0 Month");
-            x_loanAmount.setText("0");
-            x_interestPayable.setText("0");
-            x_totalPayment.setText("0");
-        }
-    });
+        double TotalInterest = sum * yearExchange - principAmount;
+        double TotalPayment = principAmount + TotalInterest;
+
+
+        x_emi.setText(String.valueOf(sum));
+        x_tenure.setText(String.valueOf(yearExchange) + " Month");
+        x_loanAmount.setText(String.valueOf(principAmount));
+        x_interestPayable.setText(String.valueOf(TotalInterest));
+        x_totalPayment.setText(String.valueOf(TotalPayment));
+
+        return view;
+    }
 
 }

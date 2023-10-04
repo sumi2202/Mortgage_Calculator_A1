@@ -46,18 +46,22 @@ public class InputFragment extends Fragment {
        loanSummaryButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               double principAmount = Double.parseDouble(principalAmount.getText().toString());
-               double interestValue = Double.parseDouble(interest.getText().toString());
-               int year = Integer.parseInt(inYear.getText().toString());
-               int month = Integer.parseInt(inMonth.getText().toString());
+               try {
+                   double principAmount = Double.parseDouble(principalAmount.getText().toString());
+                   double interestValue = Double.parseDouble(interest.getText().toString());
+                   int year = Integer.parseInt(inYear.getText().toString());
+                   int month = Integer.parseInt(inMonth.getText().toString());
 
-               Intent i = new Intent(getActivity(), CalculationFragment.class);
-               i.putExtra("principal", principAmount);
-               i.putExtra("interest", interestValue);
-               i.putExtra("year", year);
-               i.putExtra("month",month);
+                   Intent i = new Intent(getActivity(), CalculationFragment.class);
+                   i.putExtra("principal", principAmount);
+                   i.putExtra("interest", interestValue);
+                   i.putExtra("year", year);
+                   i.putExtra("month", month);
 
-               startActivity(i);
+                   startActivity(i);
+               } catch (NumberFormatException e) {
+                   Toast.makeText(requireContext(), "Please enter a valid numeric value. Enter 0 when applicable.", Toast.LENGTH_SHORT).show();
+               }
            }
        });
 
